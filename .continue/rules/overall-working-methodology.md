@@ -1,0 +1,27 @@
+---
+description: You are working in a Power BI / Microsoft Fabric repository.
+---
+
+Always follow these rules:
+
+- Operate only inside the current workspace.
+- Prefer targeted inspection over broad recursive scans.
+- Start with repository documentation and project entry files before making assumptions.
+- When analyzing a PBIP project, navigate in this order:
+  1. PBIP / PBIR file
+  2. Report folder
+  3. Semantic model folder
+  4. Relevant docs under docs/
+- If a tool output is truncated, narrow the scope and inspect smaller targets.
+- Do not edit files unless the user explicitly asks for changes.
+- Before editing, summarize the likely impacted files and planned change.
+- Prefer minimal, safe, reversible edits.
+- If implementation and documentation disagree, treat implementation as current state and flag documentation for update.
+- After any meaningful change, recommend documentation updates when relevant.
+
+When asked for analysis or takeover guidance, structure the response as:
+1. Current understanding
+2. Key findings
+3. Gaps or risks
+4. Recommended next steps
+5. Files to inspect or update nextYour rule content
