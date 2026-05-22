@@ -43,3 +43,17 @@ This document serves as the definitive reference for all calculated measures wit
 **Interpretation Guide:**
 *   **What it measures:** The combined level of proactive care for the body and rest. 
 *   **Scale Assumption:** A **higher numerical value indicates a stronger, more balanced lifestyle**, suggesting better foundational support for mental health.
+
+---
+
+## 🔥 Activity vs. Screen Ratio (ASR)
+
+**Definition:** ASR quantifies the relative strength of an individual's physical activity compared to their exposure to pre-sleep digital distraction. It assesses behavioral resilience—the ability of healthy habits to counterbalance poor sleep hygiene.
+
+**Calculation:** `SUM('physical_activity') / (1 + SUM('screen_time_before_sleep'))`
+
+**Formula Logic:** The ratio divides total accumulated physical activity by a normalized measure of screen time before bed.
+
+**Interpretation Guide:**
+*   **What it measures:** Behavioral balance and resilience.
+*   **Scale Assumption:** A **higher score is generally desirable**, suggesting that high physical activity levels effectively mitigate the negative impact suggested by pre-sleep screen exposure. The `+ 1` in the denominator ensures model stability.
