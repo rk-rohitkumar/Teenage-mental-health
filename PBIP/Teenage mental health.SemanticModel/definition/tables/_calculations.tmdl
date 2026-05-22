@@ -24,6 +24,16 @@ table _calculations
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Purpose: To create a composite score indicating overall positive lifestyle factors (physical activity and sleep). This can serve as a potential independent predictor in models.
+	/// Assumption: Increased physical activity and sufficient sleep contribute positively to an individual's overall balance.
+	measure 'Lifestyle Balance Score' = ```
+			SUM('Teen_Mental_Health_Dataset'[physical_activity]) + 
+			                          SUM('Teen_Mental_Health_Dataset'[sleep_hours])
+			```
+		lineageTag: 4867c4c8-8007-4ac4-82f0-9b4118984fdb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _calculations = m
 		mode: import
 		source =
