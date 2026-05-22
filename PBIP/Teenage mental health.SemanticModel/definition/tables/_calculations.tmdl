@@ -1,0 +1,33 @@
+table _calculations
+	lineageTag: 224da59e-a450-44e4-8bd3-a4cf96f0aabd
+
+	/// Purpose: To combine the various clinical severity indicators (stress_level, anxiety_level, depression_label) into a single, actionable metric of overall psychological burden.
+	/// Assumption: All three metrics contribute linearly and equally to total distress.
+	measure 'Total Distress Score' = ```
+			SUM('Teen_Mental_Health_Dataset'[stress_level]) + 
+			                      SUM('Teen_Mental_Health_Dataset'[anxiety_level]) + 
+			                      SUM('Teen_Mental_Health_Dataset'[depression_label])
+			```
+		formatString: 0
+		lineageTag: 18127a41-5d13-428d-831c-d865c1bd41dd
+
+	column Column1
+		dataType: string
+		lineageTag: a03f34f2-6497-4a87-ba8b-1817fd7e9b60
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _calculations = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t])
+				in
+				  Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
