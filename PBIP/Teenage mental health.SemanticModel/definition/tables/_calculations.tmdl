@@ -11,6 +11,8 @@ table _calculations
 		formatString: 0
 		lineageTag: 18127a41-5d13-428d-831c-d865c1bd41dd
 
+	/// Purpose: To measure the quality of sleep relative to screen disruption. This ratio is a common indicator in behavioral health that assesses how much time was spent sleeping versus being kept awake by pre-sleep tech use.
+	/// Assumption: The lower the score, the higher the risk of poor sleep hygiene (i.e., too much disruptive screen time).
 	measure 'Sleep Efficiency Index' = ```
 			DIVIDE(
 			    SUM('Teen_Mental_Health_Dataset'[sleep_hours]), 
