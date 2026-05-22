@@ -10,5 +10,9 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBI_QueryOrder = ["Teen_Mental_Health_Dataset"]
+
+ref table Teen_Mental_Health_Dataset
+
 ref cultureInfo en-US
 

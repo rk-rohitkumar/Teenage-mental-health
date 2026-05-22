@@ -1,0 +1,132 @@
+table Teen_Mental_Health_Dataset
+	lineageTag: e91e1e51-5863-4f0c-82b7-9529d323ebf0
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cc517ca-e938-4073-af02-003d0efb6b97
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 79dbe3c3-9ae7-40c5-b08d-6927f2368c2a
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column daily_social_media_hours
+		dataType: double
+		lineageTag: 39b3fbd1-8d53-4769-96c8-3216556b9969
+		summarizeBy: sum
+		sourceColumn: daily_social_media_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column platform_usage
+		dataType: string
+		lineageTag: c094f4ea-1af1-44d2-95f3-e88a0c71b5ac
+		summarizeBy: none
+		sourceColumn: platform_usage
+
+		annotation SummarizationSetBy = Automatic
+
+	column sleep_hours
+		dataType: double
+		lineageTag: 79a6271c-7d16-4801-b350-a3f4a07eb889
+		summarizeBy: sum
+		sourceColumn: sleep_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column screen_time_before_sleep
+		dataType: double
+		lineageTag: 7ea26e07-92a6-41bc-8a84-7736def41705
+		summarizeBy: sum
+		sourceColumn: screen_time_before_sleep
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column academic_performance
+		dataType: double
+		lineageTag: b4568960-5734-4964-af88-f9bad11a6b58
+		summarizeBy: sum
+		sourceColumn: academic_performance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column physical_activity
+		dataType: double
+		lineageTag: 708542fb-143d-4525-b02c-38b648933f95
+		summarizeBy: sum
+		sourceColumn: physical_activity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column social_interaction_level
+		dataType: string
+		lineageTag: 030ccd0c-7833-4fc0-9158-fb67b32ddf6a
+		summarizeBy: none
+		sourceColumn: social_interaction_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column stress_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 29986051-b067-4703-adb8-98c3c29a189f
+		summarizeBy: sum
+		sourceColumn: stress_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column anxiety_level
+		dataType: int64
+		formatString: 0
+		lineageTag: d3f90198-1e9c-406c-80bf-b47a7e83add1
+		summarizeBy: sum
+		sourceColumn: anxiety_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column addiction_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ddf60cc-45a9-48a2-b31f-26b2780b0290
+		summarizeBy: sum
+		sourceColumn: addiction_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column depression_label
+		dataType: int64
+		formatString: 0
+		lineageTag: 33883042-7e67-4884-a694-35daa5d34ee3
+		summarizeBy: sum
+		sourceColumn: depression_label
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Teen_Mental_Health_Dataset = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\rohit\OneDrive\PowerBI\Teenage mental health\Teen_Mental_Health_Dataset.csv"), [Delimiter = ",", Columns = 13, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"age", Int64.Type}, {"gender", type text}, {"daily_social_media_hours", type number}, {"platform_usage", type text}, {"sleep_hours", type number}, {"screen_time_before_sleep", type number}, {"academic_performance", type number}, {"physical_activity", type number}, {"social_interaction_level", type text}, {"stress_level", Int64.Type}, {"anxiety_level", Int64.Type}, {"addiction_level", Int64.Type}, {"depression_label", Int64.Type}}, "en-US")
+				in
+				  #"Changed column type"
+
