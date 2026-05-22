@@ -11,6 +11,17 @@ table _calculations
 		formatString: 0
 		lineageTag: 18127a41-5d13-428d-831c-d865c1bd41dd
 
+	measure 'Sleep Efficiency Index' = ```
+			DIVIDE(
+			    SUM('Teen_Mental_Health_Dataset'[sleep_hours]), 
+			    1 + SUM('Teen_Mental_Health_Dataset'[screen_time_before_sleep]) 
+			)
+			// Note: Added '1 +' to the denominator to prevent division by zero errors.
+			```
+		lineageTag: dcd306e2-e4c8-42cf-b7a0-8159a7fb9805
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Column1
 		dataType: string
 		lineageTag: a03f34f2-6497-4a87-ba8b-1817fd7e9b60
