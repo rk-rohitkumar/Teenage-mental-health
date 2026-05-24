@@ -104,12 +104,16 @@ table _calculations
 			
 			var male = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "male" )
 			var female = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "female" )
+			var greaterRatio = IF( male > female, "Male", "Female" )
+			var result = 
+			    IF( greaterRatio = "Male", 
+			        DIVIDE( male, female ) -1,
+			        DIVIDE( female, male ) -1
+			    )
 			
-			var result = DIVIDE( female, male ) -1 
-			
-			RETURN ROUND( result, 2 )
+			RETURN
+			 greaterRatio & "s have " & FORMAT(  ROUND( result, 2 ), "#0%" ) & " more chance of being depressed" 
 			```
-		formatString: 0%;-0%;0%
 		lineageTag: c045a2d5-9fc5-478e-9685-2684e93484ce
 
 	partition _calculations = m

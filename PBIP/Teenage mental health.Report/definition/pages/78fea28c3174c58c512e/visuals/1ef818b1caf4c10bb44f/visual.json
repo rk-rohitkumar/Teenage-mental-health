@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "cf467f62f8a8f4a660dc",
+  "name": "1ef818b1caf4c10bb44f",
   "position": {
-    "x": 78.9041095890411,
+    "x": 619.72602739726028,
     "y": 312.32876712328772,
-    "z": 1,
+    "z": 2,
     "height": 565.47945205479459,
-    "width": 509.58904109589048,
-    "tabOrder": 1
+    "width": 537.53424657534254,
+    "tabOrder": 2
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -42,11 +42,11 @@
                       "Entity": "_calculations"
                     }
                   },
-                  "Property": "pct of depressed"
+                  "Property": "Compounded Risk Score (CRS)"
                 }
               },
-              "queryRef": "_calculations.pct of depressed",
-              "nativeQueryRef": "pct of depressed"
+              "queryRef": "_calculations.Compounded Risk Score (CRS)",
+              "nativeQueryRef": "Compounded Risk Score (CRS)"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_calculations"
                   }
                 },
-                "Property": "pct of depressed"
+                "Property": "Compounded Risk Score (CRS)"
               }
             },
             "direction": "Descending"
@@ -69,41 +69,6 @@
         ],
         "isDefaultSort": true
       }
-    },
-    "objects": {
-      "valueAxis": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_calculations"
-                    }
-                  },
-                  "Property": "pct of depressed m/f ratio"
-                }
-              }
-            }
-          }
-        }
-      ]
     },
     "drillFilterOtherVisuals": true
   }
