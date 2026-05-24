@@ -57,3 +57,45 @@ This document serves as the definitive reference for all calculated measures wit
 **Interpretation Guide:**
 *   **What it measures:** Behavioral balance and resilience.
 *   **Scale Assumption:** A **higher score is generally desirable**, suggesting that high physical activity levels effectively mitigate the negative impact suggested by pre-sleep screen exposure. The `+ 1` in the denominator ensures model stability.
+
+---
+
+## 📉 Distress vs. Lifestyle Balance Ratio (TDS/LBS)
+
+**Definition:** This ratio normalizes the overall distress score by factoring in general lifestyle balance, providing a holistic view of strain relative to proactive self-care efforts.
+
+**Calculation:** `[Total Distress Score] / (1 + [Lifestyle Balance Score])`
+
+**Formula Logic:** Divides the combined psychological burden (TDS) by a normalized measure of positive lifestyle habits (LBS).
+
+**Interpretation Guide:**
+*   **What it measures:** The severity of distress relative to foundational coping mechanisms.
+*   **Scale Assumption:** A **higher ratio indicates that an individual's baseline habits are insufficient to offset their measured psychological burden**, suggesting a greater need for intervention.
+
+---
+
+## 🏃 Strain-to-Activity Ratio (SAR)
+
+**Definition:** SAR quantifies the intensity of emotional strain relative to physical activity level. It measures how much psychological distress remains even after accounting for healthy behavioral efforts.
+
+**Calculation:** `SUM('stress_level') / (1 + SUM('physical_activity'))`
+
+**Formula Logic:** Divides the total stress score by a normalized measure of physical activity.
+
+**Interpretation Guide:**
+*   **What it measures:** The proportion of emotional strain that cannot be mitigated by physical exercise alone.
+*   **Scale Assumption:** A **higher score is concerning**, suggesting that an individual's psychological distress is disproportionately high compared to their healthy behavioral efforts, indicating a potential need for mental health support beyond routine activity.
+
+---
+
+## 🚨 Compounded Risk Score (CRS)
+
+**Definition:** CRS quantifies the overall compounded risk by multiplying key psychological distress indicators (Stress and Anxiety) by the degree of poor digital hygiene (pre-sleep screen time).
+
+**Calculation:** `SUM('stress_level') + SUM('anxiety_level') * SUM('screen_time_before_sleep')`
+
+**Formula Logic:** Adds raw stress level to an anxiety/screen time product. This calculation emphasizes individuals who suffer from both emotional burden and poor sleep hygiene habits.
+
+**Interpretation Guide:**
+*   **What it measures:** The confluence of psychological distress and high digital disruption risk.
+*   **Scale Assumption:** A **higher score indicates a heightened, compounded risk**, signaling the highest priority for targeted intervention or follow-up care.
