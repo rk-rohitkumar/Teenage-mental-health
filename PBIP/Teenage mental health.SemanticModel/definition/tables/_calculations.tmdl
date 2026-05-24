@@ -54,6 +54,29 @@ table _calculations
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	/// Normalizes the overall distress score by factoring in general lifestyle balance. A higher ratio indicates that an individual's baseline habits are insufficient to offset their measured psychological burden.
+	measure 'TDS/ LBS ratio' = [Total Distress Score] / (1 + [Lifestyle Balance Score])
+		lineageTag: b80af3f2-c525-4856-9674-c8e2cc5de0f1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Measures the intensity of emotional strain relative to physical activity level. A higher score suggests that an individual's psychological stress is disproportionately high compared to their healthy behaviors.
+	measure 'Stress-to-Activity Ratio (SAR)' = SUM(Teen_Mental_Health_Dataset[stress_level]) / (1 + SUM(Teen_Mental_Health_Dataset[physical_activity]))
+		lineageTag: 8c0e235f-ed0c-4d0c-a604-b7aa5a9f68e1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Quantifies the compounded risk by multiplying psychological distress indicators (Stress + Anxiety) by pre-sleep screen time. This highlights individuals with both high emotional burden and poor digital hygiene habits.
+	measure 'Compounded Risk Score (CRS)' = ```
+			
+			    SUM(Teen_Mental_Health_Dataset[stress_level]) + 
+			    SUM('Teen_Mental_Health_Dataset'[anxiety_level]) * 
+			    SUM('Teen_Mental_Health_Dataset'[screen_time_before_sleep] )
+			```
+		lineageTag: 4b5db484-7634-4461-acc3-6397ee34b61e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _calculations = m
 		mode: import
 		source =

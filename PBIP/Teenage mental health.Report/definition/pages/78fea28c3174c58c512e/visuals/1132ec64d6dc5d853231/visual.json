@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "1132ec64d6dc5d853231",
+  "position": {
+    "x": 190.74509803921569,
+    "y": 272.31372549019608,
+    "z": 0,
+    "height": 706.50980392156862,
+    "width": 1499.6078431372548,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Teen_Mental_Health_Dataset"
+                    }
+                  },
+                  "Property": "age"
+                }
+              },
+              "queryRef": "Teen_Mental_Health_Dataset.age",
+              "nativeQueryRef": "age"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Activity vs. Screen Ratio"
+                }
+              },
+              "queryRef": "_calculations.Activity vs. Screen Ratio",
+              "nativeQueryRef": "Activity vs. Screen Ratio"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Teen_Mental_Health_Dataset"
+                  }
+                },
+                "Property": "age"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

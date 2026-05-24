@@ -5,10 +5,10 @@ table Teen_Mental_Health_Dataset
 		dataType: int64
 		formatString: 0
 		lineageTag: 3cc517ca-e938-4073-af02-003d0efb6b97
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: age
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column gender
 		dataType: string
@@ -21,10 +21,10 @@ table Teen_Mental_Health_Dataset
 	column daily_social_media_hours
 		dataType: double
 		lineageTag: 39b3fbd1-8d53-4769-96c8-3216556b9969
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: daily_social_media_hours
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -39,40 +39,40 @@ table Teen_Mental_Health_Dataset
 	column sleep_hours
 		dataType: double
 		lineageTag: 79a6271c-7d16-4801-b350-a3f4a07eb889
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: sleep_hours
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column screen_time_before_sleep
 		dataType: double
 		lineageTag: 7ea26e07-92a6-41bc-8a84-7736def41705
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: screen_time_before_sleep
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column academic_performance
 		dataType: double
 		lineageTag: b4568960-5734-4964-af88-f9bad11a6b58
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: academic_performance
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column physical_activity
 		dataType: double
 		lineageTag: 708542fb-143d-4525-b02c-38b648933f95
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: physical_activity
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -88,37 +88,37 @@ table Teen_Mental_Health_Dataset
 		dataType: int64
 		formatString: 0
 		lineageTag: 29986051-b067-4703-adb8-98c3c29a189f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: stress_level
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column anxiety_level
 		dataType: int64
 		formatString: 0
 		lineageTag: d3f90198-1e9c-406c-80bf-b47a7e83add1
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: anxiety_level
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column addiction_level
 		dataType: int64
 		formatString: 0
 		lineageTag: 4ddf60cc-45a9-48a2-b31f-26b2780b0290
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: addiction_level
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column depression_label
 		dataType: int64
 		formatString: 0
 		lineageTag: 33883042-7e67-4884-a694-35daa5d34ee3
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: depression_label
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	partition Teen_Mental_Health_Dataset = m
 		mode: import
