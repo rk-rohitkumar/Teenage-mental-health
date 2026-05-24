@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "cd448b7e193a52c3f1f0",
+  "position": {
+    "x": 78.2802075611564,
+    "y": 286.07857672349888,
+    "z": 2,
+    "height": 186.44922164566344,
+    "width": 701.67531504818385,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "card",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "pct of depressed m/f ratio"
+                }
+              },
+              "queryRef": "_calculations.pct of depressed m/f ratio",
+              "nativeQueryRef": "pct of depressed m/f ratio"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

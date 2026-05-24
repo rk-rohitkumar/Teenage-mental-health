@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "654d6268995ff1c95950",
+  "position": {
+    "x": 78.2802075611564,
+    "y": 86.819866567828015,
+    "z": 0,
+    "height": 185.02594514455151,
+    "width": 1789.058561897702,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Activity vs. Screen Ratio"
+                }
+              },
+              "queryRef": "_calculations.Activity vs. Screen Ratio",
+              "nativeQueryRef": "Activity vs. Screen Ratio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Compounded Risk Score (CRS)"
+                }
+              },
+              "queryRef": "_calculations.Compounded Risk Score (CRS)",
+              "nativeQueryRef": "Compounded Risk Score (CRS)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Lifestyle Balance Score"
+                }
+              },
+              "queryRef": "_calculations.Lifestyle Balance Score",
+              "nativeQueryRef": "Lifestyle Balance Score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Sleep Efficiency Index"
+                }
+              },
+              "queryRef": "_calculations.Sleep Efficiency Index",
+              "nativeQueryRef": "Sleep Efficiency Index"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Stress-to-Activity Ratio (SAR)"
+                }
+              },
+              "queryRef": "_calculations.Stress-to-Activity Ratio (SAR)",
+              "nativeQueryRef": "Stress-to-Activity Ratio (SAR)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "TDS/ LBS ratio"
+                }
+              },
+              "queryRef": "_calculations.TDS/ LBS ratio",
+              "nativeQueryRef": "TDS/ LBS ratio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Total Distress Score"
+                }
+              },
+              "queryRef": "_calculations.Total Distress Score",
+              "nativeQueryRef": "Total Distress Score"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_calculations"
+                  }
+                },
+                "Property": "Activity vs. Screen Ratio"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "cf467f62f8a8f4a660dc",
+  "position": {
+    "x": 78.2802075611564,
+    "y": 486.76056338028167,
+    "z": 1,
+    "height": 565.040770941438,
+    "width": 945.05559673832465,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Count of depressed"
+                }
+              },
+              "queryRef": "_calculations.Count of depressed",
+              "nativeQueryRef": "Count of depressed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Teen_Mental_Health_Dataset"
+                    }
+                  },
+                  "Property": "gender"
+                }
+              },
+              "queryRef": "Teen_Mental_Health_Dataset.gender",
+              "nativeQueryRef": "gender"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "pct of depressed"
+                }
+              },
+              "queryRef": "_calculations.pct of depressed",
+              "nativeQueryRef": "pct of depressed"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calculations"
+                    }
+                  },
+                  "Property": "Total observations"
+                }
+              },
+              "queryRef": "_calculations.Total observations",
+              "nativeQueryRef": "Total observations"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "984174f400f83296d032",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calculations"
+              }
+            },
+            "Property": "Count of depressed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "72e6f19033044c4b261e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Teen_Mental_Health_Dataset"
+              }
+            },
+            "Property": "gender"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "69df3c1ae3bc3fd96db7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calculations"
+              }
+            },
+            "Property": "pct of depressed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "da0be582d7512b9b0b15",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calculations"
+              }
+            },
+            "Property": "Total observations"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

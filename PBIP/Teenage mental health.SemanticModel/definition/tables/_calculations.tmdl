@@ -77,6 +77,41 @@ table _calculations
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Count of depressed' = CALCULATE( COUNTROWS(Teen_Mental_Health_Dataset ), Teen_Mental_Health_Dataset[depression_label] = 1 )
+		formatString: 0
+		lineageTag: b289be1e-3bcc-40e6-bd89-4cf890402cdb
+
+	measure 'pct of depressed' = ```
+			
+			var num = 
+			    CALCULATE( COUNTROWS( Teen_Mental_Health_Dataset ), Teen_Mental_Health_Dataset[depression_label] = 1 )
+			
+			var den = 
+			    CALCULATE( COUNTROWS( Teen_Mental_Health_Dataset ), REMOVEFILTERS(Teen_Mental_Health_Dataset[depression_label] ) )
+			
+			var result = DIVIDE( num, den )
+			
+			return result
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 626df683-b3aa-49d7-aabb-57d8c79a81c7
+
+	measure 'Total observations' = COUNTROWS( Teen_Mental_Health_Dataset )
+		formatString: #,0
+		lineageTag: cd4268ca-af7d-402c-9f69-97dfde46cf82
+
+	measure 'pct of depressed m/f ratio' = ```
+			
+			var male = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "male" )
+			var female = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "female" )
+			
+			var result = DIVIDE( female, male ) -1 
+			
+			RETURN ROUND( result, 2 )
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: c045a2d5-9fc5-478e-9685-2684e93484ce
+
 	partition _calculations = m
 		mode: import
 		source =

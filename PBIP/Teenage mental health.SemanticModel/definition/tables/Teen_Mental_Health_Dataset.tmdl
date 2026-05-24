@@ -4,6 +4,7 @@ table Teen_Mental_Health_Dataset
 	column age
 		dataType: int64
 		formatString: 0
+		displayFolder: Dimensions (Identifiers & Categoricals)
 		lineageTag: 3cc517ca-e938-4073-af02-003d0efb6b97
 		summarizeBy: none
 		sourceColumn: age
@@ -12,6 +13,7 @@ table Teen_Mental_Health_Dataset
 
 	column gender
 		dataType: string
+		displayFolder: Dimensions (Identifiers & Categoricals)
 		lineageTag: 79dbe3c3-9ae7-40c5-b08d-6927f2368c2a
 		summarizeBy: none
 		sourceColumn: gender
@@ -20,6 +22,7 @@ table Teen_Mental_Health_Dataset
 
 	column daily_social_media_hours
 		dataType: double
+		displayFolder: Behavioral & Lifestyle Factors (Independent Variables)
 		lineageTag: 39b3fbd1-8d53-4769-96c8-3216556b9969
 		summarizeBy: none
 		sourceColumn: daily_social_media_hours
@@ -30,6 +33,7 @@ table Teen_Mental_Health_Dataset
 
 	column platform_usage
 		dataType: string
+		displayFolder: Dimensions (Identifiers & Categoricals)
 		lineageTag: c094f4ea-1af1-44d2-95f3-e88a0c71b5ac
 		summarizeBy: none
 		sourceColumn: platform_usage
@@ -38,6 +42,7 @@ table Teen_Mental_Health_Dataset
 
 	column sleep_hours
 		dataType: double
+		displayFolder: Behavioral & Lifestyle Factors (Independent Variables)
 		lineageTag: 79a6271c-7d16-4801-b350-a3f4a07eb889
 		summarizeBy: none
 		sourceColumn: sleep_hours
@@ -48,6 +53,7 @@ table Teen_Mental_Health_Dataset
 
 	column screen_time_before_sleep
 		dataType: double
+		displayFolder: Behavioral & Lifestyle Factors (Independent Variables)
 		lineageTag: 7ea26e07-92a6-41bc-8a84-7736def41705
 		summarizeBy: none
 		sourceColumn: screen_time_before_sleep
@@ -58,6 +64,7 @@ table Teen_Mental_Health_Dataset
 
 	column academic_performance
 		dataType: double
+		displayFolder: Key Metrics (Outcome Scores)
 		lineageTag: b4568960-5734-4964-af88-f9bad11a6b58
 		summarizeBy: none
 		sourceColumn: academic_performance
@@ -68,6 +75,7 @@ table Teen_Mental_Health_Dataset
 
 	column physical_activity
 		dataType: double
+		displayFolder: Behavioral & Lifestyle Factors (Independent Variables)
 		lineageTag: 708542fb-143d-4525-b02c-38b648933f95
 		summarizeBy: none
 		sourceColumn: physical_activity
@@ -78,6 +86,7 @@ table Teen_Mental_Health_Dataset
 
 	column social_interaction_level
 		dataType: string
+		displayFolder: Dimensions (Identifiers & Categoricals)
 		lineageTag: 030ccd0c-7833-4fc0-9158-fb67b32ddf6a
 		summarizeBy: none
 		sourceColumn: social_interaction_level
@@ -87,6 +96,7 @@ table Teen_Mental_Health_Dataset
 	column stress_level
 		dataType: int64
 		formatString: 0
+		displayFolder: Key Metrics (Outcome Scores)
 		lineageTag: 29986051-b067-4703-adb8-98c3c29a189f
 		summarizeBy: none
 		sourceColumn: stress_level
@@ -96,6 +106,7 @@ table Teen_Mental_Health_Dataset
 	column anxiety_level
 		dataType: int64
 		formatString: 0
+		displayFolder: Key Metrics (Outcome Scores)
 		lineageTag: d3f90198-1e9c-406c-80bf-b47a7e83add1
 		summarizeBy: none
 		sourceColumn: anxiety_level
@@ -105,6 +116,7 @@ table Teen_Mental_Health_Dataset
 	column addiction_level
 		dataType: int64
 		formatString: 0
+		displayFolder: Key Metrics (Outcome Scores)
 		lineageTag: 4ddf60cc-45a9-48a2-b31f-26b2780b0290
 		summarizeBy: none
 		sourceColumn: addiction_level
@@ -114,6 +126,7 @@ table Teen_Mental_Health_Dataset
 	column depression_label
 		dataType: int64
 		formatString: 0
+		displayFolder: Key Metrics (Outcome Scores)
 		lineageTag: 33883042-7e67-4884-a694-35daa5d34ee3
 		summarizeBy: none
 		sourceColumn: depression_label
