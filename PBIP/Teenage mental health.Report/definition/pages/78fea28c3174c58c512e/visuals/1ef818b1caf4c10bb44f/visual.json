@@ -2,19 +2,51 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "1ef818b1caf4c10bb44f",
   "position": {
-    "x": 619.72602739726028,
-    "y": 312.32876712328772,
+    "x": 620.3459148152873,
+    "y": 311.2927153766243,
     "z": 2,
-    "height": 565.47945205479459,
-    "width": 537.53424657534254,
+    "height": 685.29187701616581,
+    "width": 924.9200823780277,
     "tabOrder": 2
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Category": {
+        "Rows": {
           "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Teen_Mental_Health_Dataset"
+                    }
+                  },
+                  "Property": "age"
+                }
+              },
+              "queryRef": "Teen_Mental_Health_Dataset.age",
+              "nativeQueryRef": "age",
+              "active": true,
+              "displayName": "age"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Teen_Mental_Health_Dataset"
+                    }
+                  },
+                  "Property": "platform_usage"
+                }
+              },
+              "queryRef": "Teen_Mental_Health_Dataset.platform_usage",
+              "nativeQueryRef": "platform_usage",
+              "active": true,
+              "displayName": "platform_usage"
+            },
             {
               "field": {
                 "Column": {
@@ -28,11 +60,28 @@
               },
               "queryRef": "Teen_Mental_Health_Dataset.gender",
               "nativeQueryRef": "gender",
-              "active": true
+              "active": true,
+              "displayName": "gender"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fp switch dimensions"
+                    }
+                  },
+                  "Property": "fp switch dimensions"
+                }
+              },
+              "index": 0,
+              "length": 3
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,11 +91,11 @@
                       "Entity": "_calculations"
                     }
                   },
-                  "Property": "Compounded Risk Score (CRS)"
+                  "Property": "Average Total Distress"
                 }
               },
-              "queryRef": "_calculations.Compounded Risk Score (CRS)",
-              "nativeQueryRef": "Compounded Risk Score (CRS)"
+              "queryRef": "_calculations.Average Total Distress",
+              "nativeQueryRef": "Average Total Distress"
             }
           ]
         }
@@ -61,7 +110,7 @@
                     "Entity": "_calculations"
                   }
                 },
-                "Property": "Compounded Risk Score (CRS)"
+                "Property": "Average Total Distress"
               }
             },
             "direction": "Descending"
@@ -70,6 +119,47 @@
         "isDefaultSort": true
       }
     },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Teen_Mental_Health_Dataset.age"
+            ],
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Teen_Mental_Health_Dataset"
+                    }
+                  },
+                  "Property": "age"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Teen_Mental_Health_Dataset.platform_usage"
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Teen_Mental_Health_Dataset.gender"
+            ],
+            "isCollapsed": true,
+            "isPinned": true
+          }
+        ],
+        "root": {}
+      }
+    ],
     "drillFilterOtherVisuals": true
   }
 }

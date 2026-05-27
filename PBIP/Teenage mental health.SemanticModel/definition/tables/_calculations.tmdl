@@ -116,6 +116,39 @@ table _calculations
 			```
 		lineageTag: c045a2d5-9fc5-478e-9685-2684e93484ce
 
+	measure 'Average Total Distress' =
+			
+			[Average aadtion level] +
+			[Average anxiety level] +
+			[Average stress level]
+		lineageTag: 5347ff6a-f73d-4dcc-a353-e2eab64c8230
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average stress level' = ```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[stress_level] ) 
+			```
+		lineageTag: 2e0f556e-c406-4f9c-bce9-1cac004f8c8e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average aadtion level' = ```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[addiction_level] ) 
+			```
+		lineageTag: ca7f509e-dcba-46c5-b47a-c49d66ca38cd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average anxiety level' = ```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[anxiety_level] ) 
+			```
+		lineageTag: f438b2ef-0df2-4361-8d2b-509e178588f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition _calculations = m
 		mode: import
 		source =

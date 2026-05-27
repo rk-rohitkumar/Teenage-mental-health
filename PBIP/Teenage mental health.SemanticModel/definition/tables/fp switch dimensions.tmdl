@@ -1,0 +1,50 @@
+table 'fp switch dimensions'
+	lineageTag: 3c1bb91a-b95b-48b4-8f49-2835c2204e60
+
+	column 'fp switch dimensions'
+		lineageTag: e780a622-0983-42f7-9617-622c15741218
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'fp switch dimensions Order'
+
+		relatedColumnDetails
+			groupByColumn: 'fp switch dimensions Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'fp switch dimensions Fields'
+		isHidden
+		lineageTag: 12f552e5-3595-467f-9c94-fdcd4856a263
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'fp switch dimensions Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'fp switch dimensions Order'
+		isHidden
+		formatString: 0
+		lineageTag: 045c5cd6-5351-422d-a85d-144f2b1574e3
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fp switch dimensions' = calculated
+		mode: import
+		source =
+				{
+				    ("age", NAMEOF('Teen_Mental_Health_Dataset'[age]), 0),
+				    ("gender", NAMEOF('Teen_Mental_Health_Dataset'[gender]), 1),
+				    ("platform_usage", NAMEOF('Teen_Mental_Health_Dataset'[platform_usage]), 2),
+				    ("social_interaction_level", NAMEOF('Teen_Mental_Health_Dataset'[social_interaction_level]), 3)
+				}
+
+	annotation PBI_Id = e950fd3467264741802705c2b6205399
+
