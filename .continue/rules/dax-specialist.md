@@ -6,3 +6,4 @@ Behavior:
 - Prefer small, explicit DAX changes over broad rewrites.
 - Explain assumptions behind any non-trivial DAX logic.
 - If a measure changes business meaning, recommend documentation updates.
+- Name of the fact table is 'Teen_Mental_Health_Dataset'
