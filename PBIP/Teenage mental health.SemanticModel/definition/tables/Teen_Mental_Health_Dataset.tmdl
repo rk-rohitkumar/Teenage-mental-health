@@ -142,30 +142,127 @@ table Teen_Mental_Health_Dataset
 
 		annotation SummarizationSetBy = Automatic
 
-	column risk_level_total_distress
+	column Total_Distress_Risk
 		dataType: string
-		lineageTag: a0297d56-3292-4b12-b875-675c8641df92
+		lineageTag: 0d8166b5-ed1c-468c-ba19-47224fa94463
 		summarizeBy: none
-		sourceColumn: risk_level_total_distress
+		sourceColumn: Total_Distress_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Anxiety_Risk
+		dataType: string
+		lineageTag: ba155c32-580d-4f7a-8c11-a6a5be036688
+		summarizeBy: none
+		sourceColumn: Anxiety_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Addiction_Risk
+		dataType: string
+		lineageTag: 43a8bbf3-c811-40e6-8a8e-33e74752cf55
+		summarizeBy: none
+		sourceColumn: Addiction_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stress_Risk
+		dataType: string
+		lineageTag: 34a26489-54dd-46e9-86a4-92a2c9c01bec
+		summarizeBy: none
+		sourceColumn: Stress_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Academic_Status
+		dataType: string
+		lineageTag: c43d58ff-575f-4749-923d-3532a0c51973
+		summarizeBy: none
+		sourceColumn: Academic_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column SocialMedia_Risk
+		dataType: string
+		lineageTag: 3e99cfc9-2461-4856-bafa-d15f0a1c41d0
+		summarizeBy: none
+		sourceColumn: SocialMedia_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column SleepPrep_Risk
+		dataType: string
+		lineageTag: a7cbf3f6-4504-4d1f-958d-9ae4e3cd8821
+		summarizeBy: none
+		sourceColumn: SleepPrep_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sleep_Quality
+		dataType: string
+		lineageTag: 311cec87-1ba3-4ed4-ab59-96111b745738
+		summarizeBy: none
+		sourceColumn: Sleep_Quality
+
+		annotation SummarizationSetBy = Automatic
+
+	column Activity_Level
+		dataType: string
+		lineageTag: 6dadad18-6b99-40c7-8840-50c75f2dd7e3
+		summarizeBy: none
+		sourceColumn: Activity_Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column Depression_Status
+		dataType: string
+		lineageTag: 5efbe085-aa65-4004-a9ac-ffbfb03d7bf2
+		summarizeBy: none
+		sourceColumn: Depression_Status
 
 		annotation SummarizationSetBy = Automatic
 
 	partition Teen_Mental_Health_Dataset = m
 		mode: import
-		source = ```
+		source =
 				let
 				  Source = Csv.Document(File.Contents("C:\Users\rohit\OneDrive\PowerBI\Teenage mental health\Teen_Mental_Health_Dataset.csv"), [Delimiter = ",", Columns = 13, QuoteStyle = QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"age", Int64.Type}, {"gender", type text}, {"daily_social_media_hours", type number}, {"platform_usage", type text}, {"sleep_hours", type number}, {"screen_time_before_sleep", type number}, {"academic_performance", type number}, {"physical_activity", type number}, {"social_interaction_level", type text}, {"stress_level", Int64.Type}, {"anxiety_level", Int64.Type}, {"addiction_level", Int64.Type}, {"depression_label", Int64.Type}}, "en-US"),
 				    #"Added total_distress" = Table.AddColumn(#"Changed column type", "total_distress", each [stress_level] + [anxiety_level] + [addiction_level], Int64.Type),
-				    #"Added risk_level_total_distress" = Table.AddColumn(#"Added total_distress", "risk_level_total_distress", each if [total_distress] > 16 then "very high" else 
-				if [total_distress] > 12 then "high" else 
-				if [total_distress] > 9 then "medium" else 
-				if [total_distress] > 6 then "low" else 
-				if [total_distress] < 6 then "verr low" else "", type text)
-				in
-				  #"Added risk_level_total_distress"
-				```
+				
+				
+				  #"Added Total Distress Risk" = Table.AddColumn(#"Added total_distress", "Total_Distress_Risk", each if [total_distress] > 16 then "Very High Risk" else
+				    if [total_distress] > 12 then "Medium Risk" else
+				    if [total_distress] > 9 then "Low Risk" else "Unclassified", type text),
+				
+				    #"Added Anxiety Risk" = Table.AddColumn(#"Added Total Distress Risk", "Anxiety_Risk", each if [anxiety_level] > 7 then "High Risk"
+				        else if [anxiety_level] > 4 then "Medium Risk" else "Low Risk", type text),
+				
+				    #"Added Addiction Risk" = Table.AddColumn(#"Added Anxiety Risk", "Addiction_Risk", each if [addiction_level] > 6 then "High Risk"
+				        else if [addiction_level] > 3 then "Medium Risk" else "Low Risk", type text),
+				
+				    #"Added Stress Risk" = Table.AddColumn(#"Added Addiction Risk", "Stress_Risk", each if [stress_level] > 7 then "High Risk"
+				        else if [stress_level] > 4 then "Medium Risk" else "Low Risk", type text),
+				
+				    #"Added Academic Status" = Table.AddColumn(#"Added Stress Risk", "Academic_Status", each if [academic_performance] >= 3.5 then "High Performing"
+				        else if [academic_performance] >= 2.5 then "At Risk/Medium Performance" else "Needs Support", type text),
+				
+				    #"Added Social Media Risk" = Table.AddColumn(#"Added Academic Status", "SocialMedia_Risk", each if [daily_social_media_hours] > 5 then "High Risk (Excessive Usage)"
+				        else if [daily_social_media_hours] > 2 then "Medium Risk (Moderate/Cautionary Usage)" else "Low Risk (Healthy Usage)", type text),
+				
+				    #"Added Sleep Prep Risk" = Table.AddColumn(#"Added Social Media Risk", "SleepPrep_Risk", each if [screen_time_before_sleep] > 2 then "High Risk (Significant Disruption)"
+				        else if [screen_time_before_sleep] > 1 then "Medium Risk (Caution Advised)" else "Low Risk", type text),
+				
+				    #"Added Sleep Quality" = Table.AddColumn(#"Added Sleep Prep Risk", "Sleep_Quality", each if [sleep_hours] > 8 then "Optimal"
+				        else if [sleep_hours] >= 6 then "Acceptable" else "Poor", type text),
+				
+				    #"Added Activity Level" = Table.AddColumn(#"Added Sleep Quality", "Activity_Level", each if [physical_activity] = 2 then "High Activity"
+				        else if [physical_activity] = 1 then "Medium Activity" else "Low Activity", type text),
+				
+				    #"Added Depression Status" = Table.AddColumn(#"Added Activity Level", "Depression_Status", each if [depression_label] = 1 then "Present" else "Absent", type text)
+				
+				in #"Added Depression Status"
 
 	annotation PBI_NavigationStepName = Navigation
 
