@@ -137,6 +137,7 @@ table Teen_Mental_Health_Dataset
 		dataType: int64
 		formatString: 0
 		lineageTag: 63462c8d-4b46-4e39-9230-16b7a7f93c53
+		displayFolder: Derived Insights
 		summarizeBy: sum
 		sourceColumn: total_distress
 
@@ -147,6 +148,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 0d8166b5-ed1c-468c-ba19-47224fa94463
 		summarizeBy: none
 		sourceColumn: Total_Distress_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -155,6 +157,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: ba155c32-580d-4f7a-8c11-a6a5be036688
 		summarizeBy: none
 		sourceColumn: Anxiety_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -163,6 +166,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 43a8bbf3-c811-40e6-8a8e-33e74752cf55
 		summarizeBy: none
 		sourceColumn: Addiction_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -171,6 +175,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 34a26489-54dd-46e9-86a4-92a2c9c01bec
 		summarizeBy: none
 		sourceColumn: Stress_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -179,6 +184,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: c43d58ff-575f-4749-923d-3532a0c51973
 		summarizeBy: none
 		sourceColumn: Academic_Status
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -187,6 +193,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 3e99cfc9-2461-4856-bafa-d15f0a1c41d0
 		summarizeBy: none
 		sourceColumn: SocialMedia_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -195,6 +202,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: a7cbf3f6-4504-4d1f-958d-9ae4e3cd8821
 		summarizeBy: none
 		sourceColumn: SleepPrep_Risk
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -203,6 +211,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 311cec87-1ba3-4ed4-ab59-96111b745738
 		summarizeBy: none
 		sourceColumn: Sleep_Quality
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -211,6 +220,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 6dadad18-6b99-40c7-8840-50c75f2dd7e3
 		summarizeBy: none
 		sourceColumn: Activity_Level
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
@@ -219,6 +229,7 @@ table Teen_Mental_Health_Dataset
 		lineageTag: 5efbe085-aa65-4004-a9ac-ffbfb03d7bf2
 		summarizeBy: none
 		sourceColumn: Depression_Status
+		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 

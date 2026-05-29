@@ -61,3 +61,24 @@ Since this dataset was not provided with documentation, the following assumption
 1.  **Validation:** **Before proceeding with DAX, these assumptions must be validated by the source domain expert.**
 2.  **Modeling Focus:** The primary analytical focus should be creating measures that calculate ratios and comparisons (e.g., `Sleep Efficiency = sleep_hours / daily_social_media_hours`) and calculating total severity scores (e.g., `Total Distress Score = stress_level + anxiety_level + depression_label`).
 3.  **Data Modeling:** Once validated, we will begin building the semantic model structure around these measures.
+
+***
+
+### D. Derived Insights (Calculated / Derived Columns)
+These fields are computed in Power Query and provide interpretation-ready categories or scores derived from base measures.
+
+| Column Name | Data Type | Definition / Calculation | Notes |
+| :--- | :--- | :--- | :--- |
+| **total_distress** | Integer (Int64) | Sum of `stress_level`, `anxiety_level`, and `addiction_level` (`stress_level + anxiety_level + addiction_level`). | Aggregation: Sum. Used as a composite distress score. |
+| **Total_Distress_Risk** | Text (String) | Categorical risk label derived from `total_distress` (e.g., 'Very High Risk', 'Medium Risk', 'Low Risk', 'Unclassified'). | Useful for segmenting by overall distress severity. |
+| **Anxiety_Risk** | Text (String) | Risk label derived from `anxiety_level` thresholds ('High Risk', 'Medium Risk', 'Low Risk'). | Classification thresholds defined in Power Query. |
+| **Addiction_Risk** | Text (String) | Risk label derived from `addiction_level` thresholds. | Classification thresholds defined in Power Query. |
+| **Stress_Risk** | Text (String) | Risk label derived from `stress_level` thresholds. | Classification thresholds defined in Power Query. |
+| **Academic_Status** | Text (String) | Categorizes `academic_performance` into `High Performing`, `At Risk/Medium Performance`, or `Needs Support`. | Helpful for quick cohort segmentation. |
+| **SocialMedia_Risk** | Text (String) | Categories based on `daily_social_media_hours` (e.g., 'High Risk (Excessive Usage)', 'Medium Risk', 'Low Risk'). | Behavioral-derived category for social media impact. |
+| **SleepPrep_Risk** | Text (String) | Categories based on `screen_time_before_sleep` thresholds. | Helps identify sleep-disruptive behaviors. |
+| **Sleep_Quality** | Text (String) | Categorizes `sleep_hours` into `Optimal`, `Acceptable`, `Poor`. | Derived health quality indicator. |
+| **Activity_Level** | Text (String) | Categorizes `physical_activity` into `High Activity`, `Medium Activity`, `Low Activity`. | Derived active/ sedentary classification. |
+| **Depression_Status** | Text (String) | Binary label derived from `depression_label` (e.g., 'Present' if 1 else 'Absent'). | Use with caution; not a clinical diagnosis. |
+
+**Model note:** These derived fields are organized in the semantic model under the `Derived Insights` display folder for reporting convenience.
