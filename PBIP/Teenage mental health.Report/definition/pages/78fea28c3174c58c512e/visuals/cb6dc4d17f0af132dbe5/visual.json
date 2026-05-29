@@ -110,20 +110,6 @@
                                 "Value": "'''Teen_Mental_Health_Dataset''[age]'"
                               }
                             }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''Teen_Mental_Health_Dataset''[platform_usage]'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'''Teen_Mental_Health_Dataset''[gender]'"
-                              }
-                            }
                           ]
                         ]
                       }
@@ -154,28 +140,6 @@
                                   }
                                 ]
                               }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''Teen_Mental_Health_Dataset''[platform_usage]'"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "'''Teen_Mental_Health_Dataset''[gender]'"
-                                    }
-                                  }
-                                ]
-                              }
                             ]
                           ],
                           "columns": [
@@ -196,12 +160,6 @@
                         "valueMap": [
                           {
                             "0": "age"
-                          },
-                          {
-                            "0": "platform_usage"
-                          },
-                          {
-                            "0": "gender"
                           }
                         ]
                       }

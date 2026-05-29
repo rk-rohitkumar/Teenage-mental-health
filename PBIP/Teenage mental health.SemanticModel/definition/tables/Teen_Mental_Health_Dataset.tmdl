@@ -133,13 +133,27 @@ table Teen_Mental_Health_Dataset
 
 		annotation SummarizationSetBy = User
 
+	column total_distress
+		dataType: int64
+		formatString: 0
+		lineageTag: 63462c8d-4b46-4e39-9230-16b7a7f93c53
+		summarizeBy: sum
+		sourceColumn: total_distress
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Teen_Mental_Health_Dataset = m
 		mode: import
 		source =
 				let
 				  Source = Csv.Document(File.Contents("C:\Users\rohit\OneDrive\PowerBI\Teenage mental health\Teen_Mental_Health_Dataset.csv"), [Delimiter = ",", Columns = 13, QuoteStyle = QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"age", Int64.Type}, {"gender", type text}, {"daily_social_media_hours", type number}, {"platform_usage", type text}, {"sleep_hours", type number}, {"screen_time_before_sleep", type number}, {"academic_performance", type number}, {"physical_activity", type number}, {"social_interaction_level", type text}, {"stress_level", Int64.Type}, {"anxiety_level", Int64.Type}, {"addiction_level", Int64.Type}, {"depression_label", Int64.Type}}, "en-US")
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"age", Int64.Type}, {"gender", type text}, {"daily_social_media_hours", type number}, {"platform_usage", type text}, {"sleep_hours", type number}, {"screen_time_before_sleep", type number}, {"academic_performance", type number}, {"physical_activity", type number}, {"social_interaction_level", type text}, {"stress_level", Int64.Type}, {"anxiety_level", Int64.Type}, {"addiction_level", Int64.Type}, {"depression_label", Int64.Type}}, "en-US"),
+				    #"Added total_distress" = Table.AddColumn(#"Changed column type", "total_distress", each [stress_level] + [anxiety_level] + [addiction_level], Int64.Type)
 				in
-				  #"Changed column type"
+				  #"Added total_distress"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

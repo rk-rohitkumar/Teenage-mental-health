@@ -13,6 +13,9 @@
     "visualType": "pivotTable",
     "query": {
       "queryState": {
+        "Columns": {
+          "projections": []
+        },
         "Rows": {
           "projections": [
             {
@@ -23,61 +26,12 @@
                       "Entity": "Teen_Mental_Health_Dataset"
                     }
                   },
-                  "Property": "age"
+                  "Property": "depression_label"
                 }
               },
-              "queryRef": "Teen_Mental_Health_Dataset.age",
-              "nativeQueryRef": "age",
-              "active": true,
-              "displayName": "age"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Teen_Mental_Health_Dataset"
-                    }
-                  },
-                  "Property": "platform_usage"
-                }
-              },
-              "queryRef": "Teen_Mental_Health_Dataset.platform_usage",
-              "nativeQueryRef": "platform_usage",
-              "active": true,
-              "displayName": "platform_usage"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Teen_Mental_Health_Dataset"
-                    }
-                  },
-                  "Property": "gender"
-                }
-              },
-              "queryRef": "Teen_Mental_Health_Dataset.gender",
-              "nativeQueryRef": "gender",
-              "active": true,
-              "displayName": "gender"
-            }
-          ],
-          "fieldParameters": [
-            {
-              "parameterExpr": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fp switch dimensions"
-                    }
-                  },
-                  "Property": "fp switch dimensions"
-                }
-              },
-              "index": 0,
-              "length": 3
+              "queryRef": "Teen_Mental_Health_Dataset.depression_label",
+              "nativeQueryRef": "depression_label",
+              "active": true
             }
           ]
         },
@@ -99,24 +53,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_calculations"
-                  }
-                },
-                "Property": "Average Total Distress"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "expansionStates": [
@@ -127,31 +63,7 @@
         "levels": [
           {
             "queryRefs": [
-              "Teen_Mental_Health_Dataset.age"
-            ],
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Teen_Mental_Health_Dataset"
-                    }
-                  },
-                  "Property": "age"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Teen_Mental_Health_Dataset.platform_usage"
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "Teen_Mental_Health_Dataset.gender"
+              "Teen_Mental_Health_Dataset.depression_label"
             ],
             "isCollapsed": true,
             "isPinned": true
