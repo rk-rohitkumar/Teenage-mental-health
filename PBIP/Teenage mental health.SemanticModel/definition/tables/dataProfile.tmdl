@@ -1,0 +1,83 @@
+table dataProfile
+	lineageTag: a2d132e4-77e8-4e9b-b344-bd95658d4016
+
+	column Column
+		dataType: string
+		lineageTag: bf3b3eba-6aeb-42bb-badb-af476b36c92e
+		summarizeBy: none
+		sourceColumn: Column
+
+		annotation SummarizationSetBy = Automatic
+
+	column Min
+		dataType: string
+		lineageTag: 150ec37a-83a0-4679-ab97-5d2fb9819441
+		summarizeBy: none
+		sourceColumn: Min
+
+		annotation SummarizationSetBy = Automatic
+
+	column Max
+		dataType: string
+		lineageTag: d4066876-932d-4c2c-89c0-ac1f9a628b86
+		summarizeBy: none
+		sourceColumn: Max
+
+		annotation SummarizationSetBy = Automatic
+
+	column Average
+		dataType: string
+		lineageTag: 4d457a5f-2c15-486a-a89c-21827a0e8169
+		summarizeBy: none
+		sourceColumn: Average
+
+		annotation SummarizationSetBy = Automatic
+
+	column StandardDeviation
+		dataType: double
+		lineageTag: b3df7778-a7a0-4aac-bbbc-8e4a6e7cb63b
+		summarizeBy: sum
+		sourceColumn: StandardDeviation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Count
+		dataType: double
+		lineageTag: 4b71d619-53b6-4550-839c-eb3971aa903c
+		summarizeBy: sum
+		sourceColumn: Count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NullCount
+		dataType: string
+		lineageTag: 5fa92099-d5c1-4461-a5b9-56c006714743
+		summarizeBy: none
+		sourceColumn: NullCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column DistinctCount
+		dataType: string
+		lineageTag: f2e38afb-6859-4a06-9dad-d3c9a23ecef5
+		summarizeBy: none
+		sourceColumn: DistinctCount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dataProfile = m
+		mode: import
+		source =
+				let
+				    Source = Table.Profile( Teen_Mental_Health_Dataset )
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

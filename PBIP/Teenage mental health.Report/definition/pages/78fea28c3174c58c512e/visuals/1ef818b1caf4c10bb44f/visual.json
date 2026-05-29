@@ -73,5 +73,37 @@
       }
     ],
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3ac233774d011136a28d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calculations"
+              }
+            },
+            "Property": "Average Total Distress"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9210ae283a2ae33f96f0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Teen_Mental_Health_Dataset"
+              }
+            },
+            "Property": "depression_label"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -10,11 +10,12 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["Teen_Mental_Health_Dataset","_calculations"]
+annotation PBI_QueryOrder = ["Teen_Mental_Health_Dataset","_calculations","dataProfile"]
 
 ref table Teen_Mental_Health_Dataset
 ref table _calculations
 ref table 'fp switch dimensions'
+ref table dataProfile
 
 ref cultureInfo en-US
 

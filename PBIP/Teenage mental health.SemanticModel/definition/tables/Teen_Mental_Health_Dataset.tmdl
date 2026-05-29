@@ -142,16 +142,30 @@ table Teen_Mental_Health_Dataset
 
 		annotation SummarizationSetBy = Automatic
 
+	column risk_level_total_distress
+		dataType: string
+		lineageTag: a0297d56-3292-4b12-b875-675c8641df92
+		summarizeBy: none
+		sourceColumn: risk_level_total_distress
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Teen_Mental_Health_Dataset = m
 		mode: import
-		source =
+		source = ```
 				let
 				  Source = Csv.Document(File.Contents("C:\Users\rohit\OneDrive\PowerBI\Teenage mental health\Teen_Mental_Health_Dataset.csv"), [Delimiter = ",", Columns = 13, QuoteStyle = QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
 				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"age", Int64.Type}, {"gender", type text}, {"daily_social_media_hours", type number}, {"platform_usage", type text}, {"sleep_hours", type number}, {"screen_time_before_sleep", type number}, {"academic_performance", type number}, {"physical_activity", type number}, {"social_interaction_level", type text}, {"stress_level", Int64.Type}, {"anxiety_level", Int64.Type}, {"addiction_level", Int64.Type}, {"depression_label", Int64.Type}}, "en-US"),
-				    #"Added total_distress" = Table.AddColumn(#"Changed column type", "total_distress", each [stress_level] + [anxiety_level] + [addiction_level], Int64.Type)
+				    #"Added total_distress" = Table.AddColumn(#"Changed column type", "total_distress", each [stress_level] + [anxiety_level] + [addiction_level], Int64.Type),
+				    #"Added risk_level_total_distress" = Table.AddColumn(#"Added total_distress", "risk_level_total_distress", each if [total_distress] > 16 then "very high" else 
+				if [total_distress] > 12 then "high" else 
+				if [total_distress] > 9 then "medium" else 
+				if [total_distress] > 6 then "low" else 
+				if [total_distress] < 6 then "verr low" else "", type text)
 				in
-				  #"Added total_distress"
+				  #"Added risk_level_total_distress"
+				```
 
 	annotation PBI_NavigationStepName = Navigation
 

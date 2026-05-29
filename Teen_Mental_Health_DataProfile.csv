@@ -1,0 +1,16 @@
+Column,Min,Max,Average,StandardDeviation,Count,NullCount,DistinctCount
+academic_performance,2,4,2.990383333,0.576757512,1200,0,201
+addiction_level,1,10,5.565,2.8306275,1200,0,10
+age,13,19,15.92833333,2.021947275,1200,0,7
+anxiety_level,1,10,5.636666667,2.859452619,1200,0,10
+daily_social_media_hours,1,8,4.536666667,2.02959888,1200,0,71
+depression_label,0,1,0.025833333,0.158704005,1200,0,2
+gender,female,male,,,1200,0,2
+physical_activity,0,2,1.0145,0.582184563,1200,0,21
+platform_usage,Both,TikTok,,,1200,0,3
+risk_level_total_distress,,very high,,,1200,0,6
+screen_time_before_sleep,0.5,3,1.740333333,0.716659768,1200,0,26
+sleep_hours,4,9,6.449416667,1.442677173,1200,0,51
+social_interaction_level,high,medium,,,1200,0,3
+stress_level,1,10,5.445833333,2.903289551,1200,0,10
+total_distress,3,30,16.6475,5.038127565,1200,0,28
