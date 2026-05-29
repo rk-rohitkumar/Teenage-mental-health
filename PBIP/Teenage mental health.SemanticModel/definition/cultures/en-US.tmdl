@@ -2,71 +2,29 @@ cultureInfo en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "2.0.0",
+			  "Version": "1.0.0",
 			  "Language": "en-US",
 			  "Entities": {
 			    "teen_mental_health_dataset.age": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Teen_Mental_Health_Dataset",
-			          "ConceptualProperty": "age"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "Teen_Mental_Health_Dataset",
+			        "ConceptualProperty": "age"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "age": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "teen_mental_health_dataset.platform_usage": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Teen_Mental_Health_Dataset",
-			          "ConceptualProperty": "platform_usage"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "Teen_Mental_Health_Dataset",
+			        "ConceptualProperty": "platform_usage"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "platform_usage": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "teen_mental_health_dataset.gender": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Teen_Mental_Health_Dataset",
-			          "ConceptualProperty": "gender"
-			        }
+			      "Binding": {
+			        "ConceptualEntity": "Teen_Mental_Health_Dataset",
+			        "ConceptualProperty": "gender"
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "gender": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    }
 			  }
 			}

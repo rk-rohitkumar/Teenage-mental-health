@@ -133,103 +133,125 @@ table Teen_Mental_Health_Dataset
 
 		annotation SummarizationSetBy = User
 
+	/// Purpose: Composite distress score summing stress, anxiety, and addiction levels.
+	/// Assumption: Components are additive and comparable for a composite severity metric.
 	column total_distress
 		dataType: int64
 		formatString: 0
-		lineageTag: 63462c8d-4b46-4e39-9230-16b7a7f93c53
 		displayFolder: Derived Insights
+		lineageTag: 63462c8d-4b46-4e39-9230-16b7a7f93c53
 		summarizeBy: sum
 		sourceColumn: total_distress
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Bucket overall distress into human-readable risk categories.
+	/// Assumption: Buckets reflect increasing risk with higher total_distress according to PQ thresholds.
 	column Total_Distress_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 0d8166b5-ed1c-468c-ba19-47224fa94463
 		summarizeBy: none
 		sourceColumn: Total_Distress_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Categorize anxiety severity into risk labels.
+	/// Assumption: Thresholds map higher anxiety_level to higher risk (PQ logic applies).
 	column Anxiety_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: ba155c32-580d-4f7a-8c11-a6a5be036688
 		summarizeBy: none
 		sourceColumn: Anxiety_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Categorize addiction severity into risk labels.
+	/// Assumption: Thresholds map higher addiction_level to higher risk (PQ logic applies).
 	column Addiction_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 43a8bbf3-c811-40e6-8a8e-33e74752cf55
 		summarizeBy: none
 		sourceColumn: Addiction_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Categorize stress severity into risk labels.
+	/// Assumption: Thresholds map higher stress_level to higher risk (PQ logic applies).
 	column Stress_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 34a26489-54dd-46e9-86a4-92a2c9c01bec
 		summarizeBy: none
 		sourceColumn: Stress_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Classify academic performance into status buckets (High/At Risk/Needs Support).
+	/// Assumption: `academic_performance` uses a 0–4-like scale; PQ thresholds determine buckets.
 	column Academic_Status
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: c43d58ff-575f-4749-923d-3532a0c51973
 		summarizeBy: none
 		sourceColumn: Academic_Status
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Categorize social media exposure into behavioral risk levels.
+	/// Assumption: Higher `daily_social_media_hours` implies greater behavioral risk per PQ thresholds.
 	column SocialMedia_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 3e99cfc9-2461-4856-bafa-d15f0a1c41d0
 		summarizeBy: none
 		sourceColumn: SocialMedia_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Label sleep-disruptive behavior based on pre-sleep screen time.
+	/// Assumption: More screen time before sleep increases sleep disruption risk per PQ thresholds.
 	column SleepPrep_Risk
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: a7cbf3f6-4504-4d1f-958d-9ae4e3cd8821
 		summarizeBy: none
 		sourceColumn: SleepPrep_Risk
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Convert sleep hours into a qualitative sleep quality label.
+	/// Assumption: More sleep hours indicate better sleep quality (PQ thresholds: >8 optimal, >=6 acceptable).
 	column Sleep_Quality
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 311cec87-1ba3-4ed4-ab59-96111b745738
 		summarizeBy: none
 		sourceColumn: Sleep_Quality
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Map physical activity encoding to descriptive activity level labels.
+	/// Assumption: `physical_activity` uses coded values (2=High,1=Medium,else Low) as in PQ logic.
 	column Activity_Level
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 6dadad18-6b99-40c7-8840-50c75f2dd7e3
 		summarizeBy: none
 		sourceColumn: Activity_Level
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Purpose: Indicate presence/absence of depressive symptoms as a human-readable label.
+	/// Assumption: `depression_label = 1` indicates presence; other values indicate absence.
 	column Depression_Status
 		dataType: string
+		displayFolder: Derived Insights
 		lineageTag: 5efbe085-aa65-4004-a9ac-ffbfb03d7bf2
 		summarizeBy: none
 		sourceColumn: Depression_Status
-		displayFolder: Derived Insights
 
 		annotation SummarizationSetBy = Automatic
 
