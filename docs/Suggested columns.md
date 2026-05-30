@@ -76,7 +76,15 @@ These metrics quantify habits and lifestyle factors associated with mental healt
 **Thresholds (Binary: 0 or 1):**
 *   `= 1`: Present
 *   `= 0`: Absent
-## Implementation Details (M Code Changes)
-The following M code steps must be appended to the existing Power Query logic within `Teen_Mental_Health_Dataset.tmdl`. This preserves all current calculations and adds the new derived features, ensuring data integrity by chaining the updates sequentially.
 
+## 3. Advanced Predictive Measures (DAX)
+These measures calculate the likelihood of one outcome given another risk factor, enabling deeper epidemiological analysis within Power BI's DAX language. They should be created as explicit measures in the model and placed in cards or matrices alongside the risk categorization columns.
+
+### A. Probability of Depression by Distress Risk (`% Depressed | Total Distress`)
+**Purpose:** Measures the conditional probability (percentage) that a teen has 'Present' depressive symptoms, given their overall calculated distress level. This is crucial for identifying which distress levels pose the highest predictive risk for depression.
+
+**Calculation Logic (DAX):**
+The measure calculates: $\frac{\text{Count}(\text{Depression\_Status} = \text{'Present'} \cap \text{Total\_Distress\_Risk} = X)}{\text{Total Count}(\text{Records where } \text{Total\_Distress\_Risk} = X)}$
+
+**Example Implementation (DAX Code):**
 

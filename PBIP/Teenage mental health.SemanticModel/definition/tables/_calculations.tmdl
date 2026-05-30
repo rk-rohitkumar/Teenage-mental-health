@@ -149,6 +149,51 @@ table _calculations
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '% probability of depressed based on distress level' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS('Teen_Mental_Health_Dataset'),
+			        'Teen_Mental_Health_Dataset'[Depression_Status] = "Present"
+			    ),
+			    CALCULATE(
+			        COUNTROWS('Teen_Mental_Health_Dataset'),
+			        ALLSELECTED('Teen_Mental_Health_Dataset'[Depression_Status] )
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7df9d1fc-8687-488f-8ae5-767e4fff422f
+
+	measure 'title probability of depressed based on distress level' = ```
+			
+			VAR P_Value = [% probability of depressed based on distress level] 
+			VAR CurrentRiskStatus = 
+			    -- ASSUMPTION: You need to dynamically capture the "Total Distress Risk" status here.
+			    -- I am assuming this risk is available in a column called 'Risk Level' within a Dimension Table.
+			    SELECTEDVALUE(Teen_Mental_Health_Dataset[Total_Distress_Risk]) 
+			
+			VAR RiskDescriptionText = 
+			    SWITCH(
+			        CurrentRiskStatus,
+			        "Very High", "very high",
+			        "Medium", "medium",
+			        -- Add other risk levels here if applicable (e.g., "Low", "Moderate")
+			        "high" -- Fallback description if status is detected but not explicitly listed above
+			    )
+			
+			VAR ResultString = 
+			    IF(
+			        ISBLANK(P_Value),
+			        "", -- Return empty string if no probability can be calculated
+			        -- Concatenate the required sentence structure.
+			        "If the Total Distress Risk is " & RiskDescriptionText & ", chances of depression being present is " & FORMAT(P_Value, "0.0%") & " times higher"
+			    )
+			
+			RETURN
+			    ResultString
+			```
+		lineageTag: 109f07ed-7481-411c-8dc8-dbf36135f42a
+
 	partition _calculations = m
 		mode: import
 		source =

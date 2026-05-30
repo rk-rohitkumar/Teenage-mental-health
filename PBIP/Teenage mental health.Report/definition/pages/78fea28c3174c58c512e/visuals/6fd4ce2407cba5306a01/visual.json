@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "6fd4ce2407cba5306a01",
   "position": {
-    "x": 78.932714617169367,
-    "y": 50.11600928074246,
-    "z": 7,
-    "height": 92.714617169373554,
-    "width": 1744.0371229698376,
-    "tabOrder": 7
+    "x": 78.571428571428569,
+    "y": 40,
+    "z": 2000,
+    "height": 92.857142857142861,
+    "width": 1797.1428571428573,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "textbox",
@@ -21,7 +21,8 @@
                   {
                     "value": "Teenage Mental Health Survey",
                     "textStyle": {
-                      "fontSize": "20pt"
+                      "fontSize": "32pt",
+                      "color": "#118dff"
                     }
                   }
                 ]
