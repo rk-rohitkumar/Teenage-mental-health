@@ -267,7 +267,7 @@ table Teen_Mental_Health_Dataset
 				
 				  #"Added Total Distress Risk" = Table.AddColumn(#"Added total_distress", "Total_Distress_Risk", each if [total_distress] > 16 then "Very High Risk" else
 				    if [total_distress] > 12 then "Medium Risk" else
-				    if [total_distress] > 9 then "Low Risk" else "Unclassified", type text),
+				    if [total_distress] > 9 then "Low Risk" else "Very Low Risk", type text),
 				
 				    #"Added Anxiety Risk" = Table.AddColumn(#"Added Total Distress Risk", "Anxiety_Risk", each if [anxiety_level] > 7 then "High Risk"
 				        else if [anxiety_level] > 4 then "Medium Risk" else "Low Risk", type text),

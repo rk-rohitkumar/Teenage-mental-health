@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "cf467f62f8a8f4a660dc",
   "position": {
-    "x": 78.9041095890411,
-    "y": 312.32876712328772,
+    "x": 77.6798143851508,
+    "y": 142.830626450116,
     "z": 1,
-    "height": 565.47945205479459,
-    "width": 509.58904109589048,
+    "height": 566.31090487238976,
+    "width": 511.18329466357307,
     "tabOrder": 1
   },
   "visual": {
@@ -106,5 +106,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3b45b91773a457ccca50",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Teen_Mental_Health_Dataset"
+              }
+            },
+            "Property": "gender"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8a2ffc78c2bd656a17bd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calculations"
+              }
+            },
+            "Property": "pct of depressed"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
