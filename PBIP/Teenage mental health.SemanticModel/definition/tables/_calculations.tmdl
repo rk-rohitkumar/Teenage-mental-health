@@ -3,8 +3,6 @@ table _calculations
 
 	/// Purpose: To combine the various clinical severity indicators (stress_level, anxiety_level, depression_label) into a single, actionable metric of overall psychological burden.
 	/// Assumption: All three metrics contribute linearly and equally to total distress.
-	/// Purpose: Combine stress, anxiety, and depression indicators into one composite score.
-	/// Assumption: Each component contributes additively and comparably to total distress.
 	measure 'Total Distress Score' = ```
 			SUM('Teen_Mental_Health_Dataset'[stress_level]) + 
 			                      SUM('Teen_Mental_Health_Dataset'[anxiety_level]) + 
@@ -15,8 +13,6 @@ table _calculations
 
 	/// Purpose: To measure the quality of sleep relative to screen disruption. This ratio is a common indicator in behavioral health that assesses how much time was spent sleeping versus being kept awake by pre-sleep tech use.
 	/// Assumption: The lower the score, the higher the risk of poor sleep hygiene (i.e., too much disruptive screen time).
-	/// Purpose: Measure sleep hours relative to pre-sleep screen exposure (sleep efficiency index).
-	/// Assumption: Higher values indicate better sleep efficiency; screen time reduces efficiency.
 	measure 'Sleep Efficiency Index' = ```
 			DIVIDE(
 			    SUM('Teen_Mental_Health_Dataset'[sleep_hours]), 
@@ -30,8 +26,6 @@ table _calculations
 
 	/// Purpose: To create a composite score indicating overall positive lifestyle factors (physical activity and sleep). This can serve as a potential independent predictor in models.
 	/// Assumption: Increased physical activity and sufficient sleep contribute positively to an individual's overall balance.
-	/// Purpose: Create a composite lifestyle score combining physical activity and sleep.
-	/// Assumption: Higher physical activity and more sleep both positively contribute to the score.
 	measure 'Lifestyle Balance Score' = ```
 			SUM('Teen_Mental_Health_Dataset'[physical_activity]) + 
 			                          SUM('Teen_Mental_Health_Dataset'[sleep_hours])
@@ -49,8 +43,6 @@ table _calculations
 	/// **Interpretation Guide:**
 	/// *   **What it measures:** Behavioral balance and resilience.
 	/// *   **Scale Assumption:** A **higher score is generally desirable**, suggesting that high physical activity levels effectively mitigate the negative impact suggested by pre-sleep screen exposure. The `+ 1` in the denominator ensures model stability.
-	/// Purpose: Compare physical activity level to pre-sleep screen time to assess behavioral resilience.
-	/// Assumption: Higher activity relative to screen time reflects better resilience; denominator uses +1 to avoid zero.
 	measure 'Activity vs. Screen Ratio' = ```
 			
 						DIVIDE(
@@ -63,24 +55,18 @@ table _calculations
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// Normalizes the overall distress score by factoring in general lifestyle balance. A higher ratio indicates that an individual's baseline habits are insufficient to offset their measured psychological burden.
-	/// Purpose: Normalize total distress by lifestyle balance to assess net risk.
-	/// Assumption: Lifestyle balance mitigates distress; divide by (1 + LBS) for stability.
 	measure 'TDS/ LBS ratio' = [Total Distress Score] / (1 + [Lifestyle Balance Score])
 		lineageTag: b80af3f2-c525-4856-9674-c8e2cc5de0f1
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// Measures the intensity of emotional strain relative to physical activity level. A higher score suggests that an individual's psychological stress is disproportionately high compared to their healthy behaviors.
-	/// Purpose: Compare stress intensity to physical activity level.
-	/// Assumption: Higher stress relative to activity indicates disproportionate emotional strain.
 	measure 'Stress-to-Activity Ratio (SAR)' = SUM(Teen_Mental_Health_Dataset[stress_level]) / (1 + SUM(Teen_Mental_Health_Dataset[physical_activity]))
 		lineageTag: 8c0e235f-ed0c-4d0c-a604-b7aa5a9f68e1
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// Quantifies the compounded risk by multiplying psychological distress indicators (Stress + Anxiety) by pre-sleep screen time. This highlights individuals with both high emotional burden and poor digital hygiene habits.
-	/// Purpose: Compute a compounded risk combining stress, anxiety, and screen-time exposure.
-	/// Assumption: Interaction of high distress and high screen time multiplies overall risk.
 	measure 'Compounded Risk Score (CRS)' = ```
 			
 			    SUM(Teen_Mental_Health_Dataset[stress_level]) + 
@@ -92,15 +78,9 @@ table _calculations
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Count of depressed' = CALCULATE( COUNTROWS(Teen_Mental_Health_Dataset ), Teen_Mental_Health_Dataset[depression_label] = 1 )
-	/// Purpose: Count rows where depression label indicates presence.
-	/// Assumption: `depression_label = 1` marks depression presence consistently.
-	measure 'Count of depressed' = CALCULATE( COUNTROWS(Teen_Mental_Health_Dataset ), Teen_Mental_Health_Dataset[depression_label] = 1 )
 		formatString: 0
 		lineageTag: b289be1e-3bcc-40e6-bd89-4cf890402cdb
 
-	measure 'pct of depressed' = ```
-	/// Purpose: Calculate the proportion of observations with depression present.
-	/// Assumption: Denominator counts all rows after removing filters on depression_label.
 	measure 'pct of depressed' = ```
 			
 			var num = 
@@ -117,15 +97,9 @@ table _calculations
 		lineageTag: 626df683-b3aa-49d7-aabb-57d8c79a81c7
 
 	measure 'Total observations' = COUNTROWS( Teen_Mental_Health_Dataset )
-	/// Purpose: Return total number of observations (rows) in the dataset.
-	/// Assumption: Each row represents a single valid observation.
-	measure 'Total observations' = COUNTROWS( Teen_Mental_Health_Dataset )
 		formatString: #,0
 		lineageTag: cd4268ca-af7d-402c-9f69-97dfde46cf82
 
-	measure 'pct of depressed m/f ratio' = ```
-	/// Purpose: Compare depression rates between male and female groups and express relative difference.
-	/// Assumption: `gender` values 'male' and 'female' are present and consistently cased.
 	measure 'pct of depressed m/f ratio' = ```
 			
 			var male = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "male" )
@@ -143,42 +117,34 @@ table _calculations
 		lineageTag: c045a2d5-9fc5-478e-9685-2684e93484ce
 
 	measure 'Average Total Distress' =
-	/// Purpose: Compute average total distress as sum of component averages.
-	/// Assumption: Component averages (addiction, anxiety, stress) are comparable and additive.
-	measure 'Average Total Distress' =
-		[Average aadtion level] +
-		[Average anxiety level] +
-		[Average stress level]
+			
+			[Average aadtion level] +
+			[Average anxiety level] +
+			[Average stress level]
 		lineageTag: 5347ff6a-f73d-4dcc-a353-e2eab64c8230
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average stress level' = ```
-	/// Purpose: Calculate mean stress level across observations.
-	/// Assumption: `stress_level` is numeric and missing values are handled by AVERAGE.
-	measure 'Average stress level' = ```
-		AVERAGE( Teen_Mental_Health_Dataset[stress_level] ) 
-		```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[stress_level] ) 
+			```
 		lineageTag: 2e0f556e-c406-4f9c-bce9-1cac004f8c8e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average aadtion level' = ```
-	/// Purpose: Calculate mean addiction level across observations.
-	/// Assumption: `addiction_level` is numeric and missing values are handled by AVERAGE.
-	measure 'Average aadtion level' = ```
-		AVERAGE( Teen_Mental_Health_Dataset[addiction_level] ) 
-		```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[addiction_level] ) 
+			```
 		lineageTag: ca7f509e-dcba-46c5-b47a-c49d66ca38cd
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average anxiety level' = ```
-	/// Purpose: Calculate mean anxiety level across observations.
-	/// Assumption: `anxiety_level` is numeric and missing values are handled by AVERAGE.
-	measure 'Average anxiety level' = ```
-		AVERAGE( Teen_Mental_Health_Dataset[anxiety_level] ) 
-		```
+			
+			AVERAGE( Teen_Mental_Health_Dataset[anxiety_level] ) 
+			```
 		lineageTag: f438b2ef-0df2-4361-8d2b-509e178588f2
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
