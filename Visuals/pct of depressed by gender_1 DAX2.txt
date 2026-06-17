@@ -1,0 +1,14 @@
+measure 'pct of depressed m/f ratio' = ```
+			
+			var male = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "male" )
+			var female = CALCULATE( [pct of depressed], Teen_Mental_Health_Dataset[gender] = "female" )
+			var greaterRatio = IF( male > female, "Male", "Female" )
+			var result = 
+			    IF( greaterRatio = "Male", 
+			        DIVIDE( male, female ) -1,
+			        DIVIDE( female, male ) -1
+			    )
+			
+			RETURN
+			 greaterRatio & "s have " & FORMAT(  ROUND( result, 2 ), "#0%" ) & " more chance of being depressed" 
+			```

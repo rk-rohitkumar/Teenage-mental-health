@@ -1,0 +1,12 @@
+measure 'pct of depressed' = ```
+			
+			var num = 
+			    CALCULATE( COUNTROWS( Teen_Mental_Health_Dataset ), Teen_Mental_Health_Dataset[depression_label] = 1 )
+			
+			var den = 
+			    CALCULATE( COUNTROWS( Teen_Mental_Health_Dataset ), REMOVEFILTERS(Teen_Mental_Health_Dataset[depression_label] ) )
+			
+			var result = DIVIDE( num, den )
+			
+			return result
+			```
